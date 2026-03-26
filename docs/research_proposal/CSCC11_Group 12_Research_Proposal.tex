@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\setlength{\parindent}{0pt}
+
+\title{Station-Level Bike Demand Prediction in Toronto: \\ 
+A Machine Learning Model Comparison Study}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Introduction}
+
+Bike-sharing systems are an important part of urban transportation in many cities.
+In Toronto, the Bike Share Toronto program provides bicycles across hundreds of
+stations and supports a large number of daily trips. However, bike demand varies
+significantly depending on time and location. Predicting bike demand can help
+operators improve bike allocation and reduce shortages at busy stations.
+
+In this project, we aim to predict \textbf{bike demand at specific stations and
+    times} using historical ridership data from Toronto Bike Share. The task is
+formulated as a \textbf{regression problem}, where the goal is to predict the
+number of bike trips starting from a station during a given hour.
+
+Our research question is:
+
+\begin{quote}
+    How do different machine learning models compare in predicting station-level bike demand?
+\end{quote}
+
+
+\section{Dataset}
+
+We use the \textbf{Toronto Bike Share Ridership Data (2021–2024)} available on Kaggle:
+
+\begin{center}
+    \url{https://www.kaggle.com/datasets/mattskogstadstubbs/toronto-bike-share-ridership-data-2021-2024}
+\end{center}
+
+The dataset contains trip-level records including start time, start station, trip
+duration, bike ID, and user type, covering multiple years of ridership data. We convert the trip-level data into station-level
+demand data by aggregating trips by \textbf{station and hour}. The target variable
+is defined as the number of trips starting from a station within a given hour.
+
+\section{Feature Engineering}
+
+Several features will be constructed to help the models capture temporal and spatial
+demand patterns.
+
+Temporal features extracted from trip start time include hour of day, day of week,
+month, and whether the day is a weekend. These features capture daily and weekly
+usage cycles.
+
+Station-level features include the station ID and historical average demand for
+each station. In addition, we will compute the proportion of annual members among
+users as a behavioral feature reflecting commuter usage patterns.
+
+We will also include lag features such as the demand in the previous hour and the
+demand at the same hour on the previous day, which help capture temporal dependence
+in bike demand.
+
+\section{Models}
+
+We will conduct a comparison study using several machine learning models.
+
+Classical models include:
+
+\begin{itemize}
+    \item Linear Regression
+    \item Ridge Regression
+    \item Random Forest Regression
+\end{itemize}
+
+As an advanced model not covered in the lecture, we will implement:
+
+\begin{itemize}
+    \item XGBoost (Extreme Gradient Boosting)
+\end{itemize}
+
+\section{Evaluation}
+
+The models will be evaluated using standard regression metrics such as Mean Absolute
+Error (MAE), Mean Squared Error (MSE), and Root Mean Squared Error (RMSE). The
+dataset will be split using a time-based train-test split to avoid information leakage.
+
+\section{Originality}
+
+As an extension, we will cluster bike stations based on their historical demand
+patterns using K-means clustering. The resulting station cluster labels will be
+used as additional features to capture usage patterns among different types of
+stations.
+
+\end{document}

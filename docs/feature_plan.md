@@ -25,3 +25,7 @@
 - All features are computed using historical data.
 - During prediction, some features (e.g., lag features) require recent observations or approximations.
 - K-means clustering is not part of preprocessing and will be applied during the modeling stage.
+- Temporal features (hour, weekday, month) are kept in their original numeric form.
+    - These features are not strictly ordinal (e.g., hour is cyclic).
+    - Encoding (e.g., one-hot or cyclic encoding) may be applied depending on the model during the modeling stage.
+- The dataset is not scaled; scaling should be applied depending on the model.

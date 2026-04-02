@@ -81,6 +81,7 @@ Use K-means to cluster stations by historical demand pattern and use cluster lab
 | Name     | Tasks                                                         | Start Date | End Date   |
 | -------- | ------------------------------------------------------------- | ---------- | ---------- |
 | Yifan Ju | Data preprocessing, feature engineering, dataset construction | 2026-03-22 | 2026-03-25 |
+| Yifan Ju | Linear Regression baseline and documentation                  | 2026-03-27 | 2026-03-30 |
 | ...      | ...                                                           | ...        | ...        |
 
 ## Environment Setup

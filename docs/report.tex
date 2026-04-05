@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+\title{\vspace{-1em}\textbf{Toronto Bike Demand Prediction}\vspace{-0.5em}}
+\author{
+Xianyi Du \and
+Yilin Gong \and
+Yifan Ju \and
+Yehan Lin
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+\vspace{-1em}
+
+\section{Abstract}
+% TODO
+
+\section{Introduction}
+
+Bike-sharing systems are an important component of urban transportation, providing a flexible solution for short-distance travel. Accurate bike demand prediction is essential for efficient resource allocation, such as bike rebalancing and station management.
+
+In this project, we study the problem of predicting station-level hourly bike demand using historical data collected from the Toronto Bike Share system. The main research question is how different machine learning models compare in predicting demand across stations and time.
+
+We construct a regression pipeline based on feature engineering, including temporal, station-specific, user behavior, and lag-based features, to capture both short-term and long-term demand patterns.
+
+We first establish a baseline using Linear Regression and then compare multiple models under the same feature representation and data split.
+
+% TODO (group): list models (e.g., Ridge Regression, Random Forest, XGBoost)
+% TODO (group): mention evaluation metrics (e.g., MAE, RMSE)
+
+\section{Data Collection, Preprocessing, and Representation}
+
+We use the Toronto Bike Share ridership dataset (2021--2024), which contains trip-level records such as start time, station information, and user type. The raw data are stored in multiple CSV files organized by year and month, which are combined into a single dataset for unified analysis.
+
+To formulate the prediction task, the raw data are aggregated into station-level hourly demand, where the target variable is the number of trips starting from a station within a given hour.
+
+Basic statistical summaries (e.g., average demand across time) and visualization are used to understand the data distribution. Due to the large size of the dataset, a representative subset is used for visualization, which is sufficient to capture overall temporal patterns.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/hourly_demand.png}
+    \caption{Average bike demand by hour, showing clear daily patterns with peak demand during commuting hours and lower demand at night.}
+    \label{fig:hourly}
+\end{figure}
+
+Figure~\ref{fig:hourly} shows that bike demand varies significantly over time, with clear daily patterns such as peak demand during commuting hours and low demand at night, indicating strong temporal dependencies.
+
+Before feature construction, we inspect the dataset structure (e.g., column names, data types) to identify inconsistencies. We clean column names and remove an extra column caused by encoding issues to ensure data consistency.
+
+The dataset is large (approximately 19 million rows), so we use a random sample to validate preprocessing steps before applying them to the full dataset.
+
+We convert the \texttt{Start\_Time} column into datetime format to enable temporal feature extraction.
+
+We design several features:
+
+\begin{itemize}
+    \item Temporal features (hour, weekday, month, is\_weekend) capture daily and weekly patterns.
+    \item Station features (station\_id, historical\_avg\_demand) capture station-specific demand levels.
+    \item A user behavior feature (member\_ratio) captures differences in usage patterns.
+    \item Lag features (lag\_1, lag\_24) capture short-term and daily temporal dependencies.
+\end{itemize}
+
+These features allow the model to capture both short-term dynamics and longer-term trends. Clustering-based features (e.g., station cluster labels via K-means) are considered in the modeling stage to capture similarities between stations.
+
+All features are represented as numerical values. Temporal features are kept in their original form, although they are not strictly ordinal. More advanced encoding may be applied in later stages if needed.
+
+Scaling is not applied at this stage to maintain consistency and ensure a fair baseline comparison.
+
+We use a time-based 80/20 train/test split to avoid data leakage and ensure evaluation on future observations. Since Linear Regression has no hyperparameters, no validation split is introduced.
+
+\section{Model Comparison Study}
+% TODO
+
+\section{Main Results}
+% TODO
+
+\section{Future Work}
+
+Future work can explore incorporating additional external data sources such as weather conditions and public events, which may influence bike demand. In addition, more advanced temporal modeling approaches, such as sequence-based models, could be considered to better capture long-term dependencies. Finally, alternative data splitting strategies, such as rolling time-based evaluation, may provide a more robust assessment of model performance.
+
+\section{Originality}
+% TODO
+
+\end{document}

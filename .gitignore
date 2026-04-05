@@ -34,4 +34,5 @@ venv/
 *.aux
 *.log
 *.out
-*.synctex.gzdocs/out/
+*.synctex.gz
+docs/out/

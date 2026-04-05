@@ -3,6 +3,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{natbib}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.5em}
@@ -21,23 +22,21 @@ Yehan Lin
 \maketitle
 \vspace{-1em}
 
-\section{Abstract}
+\section*{Abstract}
 % TODO
 
-\section{Introduction}
+\section*{Introduction}
 
-Bike-sharing systems are an important component of urban transportation, providing a flexible solution for short-distance travel. Accurate bike demand prediction is essential for efficient resource allocation, such as bike rebalancing and station management.
+Bike-sharing systems have been widely studied as part of urban transportation systems, with research highlighting their usage patterns and impacts on mobility \cite{fishman2013bike}. Accurate bike demand prediction is essential for efficient resource allocation, such as bike rebalancing and station management.
 
 In this project, we study the problem of predicting station-level hourly bike demand using historical data collected from the Toronto Bike Share system. The main research question is how different machine learning models compare in predicting demand across stations and time.
 
-We construct a regression pipeline based on feature engineering, including temporal, station-specific, user behavior, and lag-based features, to capture both short-term and long-term demand patterns.
+We construct a regression pipeline based on feature engineering, including temporal, station-specific, user behavior, and lag-based features, to capture both short-term and long-term demand patterns. This formulation follows the supervised learning framework, where the goal is to predict a target variable from input features \cite{hastie2009elements}.
 
 We first establish a baseline using Linear Regression and then compare multiple models under the same feature representation and data split.
+% TODO (What are the existing methodologies and what is your method? If you decide to implement an existing advanced method, then you should state why you have chosen this particular advanced method.)
 
-% TODO (group): list models (e.g., Ridge Regression, Random Forest, XGBoost)
-% TODO (group): mention evaluation metrics (e.g., MAE, RMSE)
-
-\section{Data Collection, Preprocessing, and Representation}
+\section*{Data Collection, Preprocessing, and Representation}
 
 We use the Toronto Bike Share ridership dataset (2021--2024), which contains trip-level records such as start time, station information, and user type. The raw data are stored in multiple CSV files organized by year and month, which are combined into a single dataset for unified analysis.
 
@@ -47,7 +46,7 @@ Basic statistical summaries (e.g., average demand across time) and visualization
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\linewidth]{figures/hourly_demand.png}
+    \includegraphics[width=0.7\linewidth]{../figures/hourly_demand.png}
     \caption{Average bike demand by hour, showing clear daily patterns with peak demand during commuting hours and lower demand at night.}
     \label{fig:hourly}
 \end{figure}
@@ -77,17 +76,19 @@ Scaling is not applied at this stage to maintain consistency and ensure a fair b
 
 We use a time-based 80/20 train/test split to avoid data leakage and ensure evaluation on future observations. Since Linear Regression has no hyperparameters, no validation split is introduced.
 
-\section{Model Comparison Study}
+\section*{Model Comparison Study}
 % TODO
 
-\section{Main Results}
+\section*{Main Results}
 % TODO
 
-\section{Future Work}
+\section*{Future Work}
 
 Future work can explore incorporating additional external data sources such as weather conditions and public events, which may influence bike demand. In addition, more advanced temporal modeling approaches, such as sequence-based models, could be considered to better capture long-term dependencies. Finally, alternative data splitting strategies, such as rolling time-based evaluation, may provide a more robust assessment of model performance.
 
-\section{Originality}
+\section*{Originality}
 % TODO
 
+\bibliographystyle{plain}
+\bibliography{references}
 \end{document}

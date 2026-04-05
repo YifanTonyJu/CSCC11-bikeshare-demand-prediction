@@ -31,8 +31,12 @@ venv/
 # =========================
 # LaTeX build files
 # =========================
+# LaTeX build files
 *.aux
 *.log
 *.out
-*.synctex.gz
-docs/out/
+*.bbl
+*.blg
+*.pdf
+
+docs/report/out/

@@ -76,10 +76,25 @@ Scaling is not applied at this stage to maintain consistency and ensure a fair b
 
 We use a time-based 80/20 train/test split to avoid data leakage and ensure evaluation on future observations. Since Linear Regression has no hyperparameters, no validation split is introduced.
 
-\section*{Model Comparison Study}
-% TODO
-
 \section*{Main Results}
+\begin{table}[htbp]
+    \centering
+    \caption{Comparison of prediction models on bike demand forecasting. Rows correspond to models and columns correspond to evaluation metrics.}
+    \label{tab:model_comparison}
+    \begin{tabular}{|l|c|c|c|}
+        \hline
+        Model & MAE & MSE & RMSE \\
+        \hline
+        Linear Regression & 3.8259 & 47.2695 & 6.8753 \\
+        Ridge Regression & 3.8253 & 47.2566 & 6.8743 \\
+        Random Forest & % TODO & % TODO & % TODO \\
+        XGBoost & 2.8016 & 25.2606 & 5.0260 \\
+        Prediction by mean & 14.0194 & 269.4303 & 16.4143 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\section*{Model Comparison Study}
 % TODO
 
 \section*{Future Work}

@@ -23,7 +23,7 @@ Yehan Lin
 \vspace{-1em}
 
 \section*{Abstract}
-% TODO
+Accurate station-level bike demand prediction is important for bike rebalancing and operational planning in urban bike-sharing systems. This paper studies hourly demand forecasting for the Toronto Bike Share system using trip records collected from 2021 to 2024. The prediction task is formulated as a supervised regression problem with features designed to capture temporal patterns, station-specific behavior, user composition, and recent demand history. Under a time-based 80/20 train--test split, Linear Regression, Ridge Regression, Random Forest, and XGBoost are evaluated using MAE, MSE, and RMSE. The results show that tree-based methods substantially outperform linear baselines, with XGBoost achieving the best overall performance, including an RMSE of 5.0260, while Random Forest provides a close second-best result. These findings indicate that bike demand contains strong nonlinear structure and feature interactions that are not fully captured by linear models. The study shows that a carefully designed feature-engineering pipeline, combined with accessible machine learning models, can provide effective demand forecasting without requiring more complex spatiotemporal architectures.
 
 \section*{Introduction}
 

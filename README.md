@@ -80,13 +80,14 @@ Use K-means to cluster stations by historical demand pattern and use cluster lab
 
 | Name      | Tasks                                                            | Start Date | End Date   |
 | ---------  | ---------------------------------------------------------------- | ---------- | ---------- |
-| Yifan Ju   | Data preprocessing, feature engineering, dataset construction    | 2026-03-22 | 2026-03-25 |
-| Yifan Ju   | Linear Regression baseline and documentation                     | 2026-03-27 | 2026-03-30 |
-| Yifan Ju   | Report writing (Data section, partial Introduction, Future Work) | 2026-04-01 | 2026-04-03 |
-| Yehan Lin  | Ridge regression baseline and mean baseline evaluation           | 2026-03-30 | 2026-04-02 |
-| Yehan Lin  | Two-layer neural network(if interested, better MSE,poor MAE)     | 2026-04-02 | 2026-04-03 |
-| Yilin Gong | XGBoost regression baseline and documentation                    | 2026-04-04 | 2025-04-05 |
-| ...        | ...                                                              | ...        | ...        |
+| Yifan Ju   | Data preprocessing, feature engineering, dataset construction         | 2026-03-22 | 2026-03-25 |
+| Yifan Ju   | Linear Regression baseline and documentation                          | 2026-03-27 | 2026-03-30 |
+| Yifan Ju   | Report writing (Data section, partial Introduction, Future Work)      | 2026-04-01 | 2026-04-03 |
+| Yehan Lin  | Ridge regression baseline and mean baseline evaluation                | 2026-03-30 | 2026-04-02 |
+| Yehan Lin  | Two-layer neural network(if interested, better MSE,poor MAE)          | 2026-04-02 | 2026-04-03 |
+| Yehan Lin  | Report writing(main results model comparisons without rf originality )| 2026-03-30 | 2026-04-06 |
+| Yilin Gong | XGBoost regression baseline and documentation                         | 2026-04-04 | 2025-04-05 |
+| ...        | ...                                                                   | ...        | ...        |
 
 ## Environment Setup
 
